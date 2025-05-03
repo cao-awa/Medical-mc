@@ -20,7 +20,7 @@ object SICount {
      * @since 1.0.0
      */
     @JvmField
-    val GIGA: Int = 1000000000
+    val GIGA: Long = 1000000000
 
     /**
      * SI: ``million``.
@@ -28,7 +28,7 @@ object SICount {
      * @since 1.0.0
      */
     @JvmField
-    val MEGA: Int = 1000000
+    val MEGA: Long = 1000000
 
     /**
      * SI: ``thousand``.
@@ -36,5 +36,5 @@ object SICount {
      * @since 1.0.0
      */
     @JvmField
-    val KILO: Int = 1000
+    val KILO: Long = 1000
 }

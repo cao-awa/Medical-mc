@@ -19,7 +19,7 @@ public class PlayerEntityMixin {
             at = @At("RETURN")
     )
     public void readImmunity(NbtCompound nbt, CallbackInfo ci) {
-        this.immunitySystem.readNbt(nbt);
+        this.immunitySystem.readNbt(nbt.getCompoundOrEmpty("ImmunitySystem"));
     }
 
     @Inject(

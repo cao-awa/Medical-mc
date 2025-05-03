@@ -17,7 +17,7 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    var neutrophil: UInt = 0U
+    var neutrophil: ULong = 0U
 
     /**
      * Eosinophil count.
@@ -29,7 +29,7 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    var eosinophil: UInt = 0u
+    var eosinophil: ULong = 0u
 
     /**
      * Basophil count.
@@ -41,7 +41,7 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    var basophil: UInt = 0u
+    var basophil: ULong = 0u
 
     /**
      * Lymphocyte count.
@@ -53,7 +53,7 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    var lymphocyte: UInt = 0u
+    var lymphocyte: ULong = 0u
 
     /**
      * Monocyte count.
@@ -65,7 +65,7 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    var monocyte: UInt = 0u
+    var monocyte: ULong = 0u
 
     override fun readNbt(compound: NbtCompound) {
         println("awa?")
@@ -73,7 +73,7 @@ class WhiteBloodCount : NbtObject() {
         // Read neutrocyte data.
         compound.getInt("N").ifPresentOrElse({ neutrophilCount: Int ->
             // If present when set present value.
-            this.neutrophil = neutrophilCount.toUInt()
+            this.neutrophil = neutrophilCount.toULong()
         }) {
             // If not data present, generate a new one.
             healthNeutrophil()
@@ -82,7 +82,7 @@ class WhiteBloodCount : NbtObject() {
         // Read neutrocyte data.
         compound.getInt("E").ifPresentOrElse({ eosinophilCount: Int ->
             // If present when set present value.
-            this.eosinophil = eosinophilCount.toUInt()
+            this.eosinophil = eosinophilCount.toULong()
         }) {
             // If not data present, generate a new one.
             healthEosinophil()
@@ -91,7 +91,7 @@ class WhiteBloodCount : NbtObject() {
         // Read basophil data.
         compound.getInt("B").ifPresentOrElse({ basophilCount: Int ->
             // If present when set present value.
-            this.basophil = basophilCount.toUInt()
+            this.basophil = basophilCount.toULong()
         }) {
             // If not data present, generate a new one.
             healthBasophil()
@@ -100,7 +100,7 @@ class WhiteBloodCount : NbtObject() {
         // Read lymphocyte data.
         compound.getInt("L").ifPresentOrElse({ lymphocyteCount: Int ->
             // If present when set present value.
-            this.lymphocyte = lymphocyteCount.toUInt()
+            this.lymphocyte = lymphocyteCount.toULong()
         }) {
             // If not data present, generate a new one.
             healthLymphocyte()
@@ -109,7 +109,7 @@ class WhiteBloodCount : NbtObject() {
         // Read monocyte data.
         compound.getInt("M").ifPresentOrElse({ monocyte: Int ->
             // If present when set present value.
-            this.monocyte = monocyte.toUInt()
+            this.monocyte = monocyte.toULong()
         }) {
             // If not data present, generate a new one.
             healthMonocyte()
@@ -119,11 +119,11 @@ class WhiteBloodCount : NbtObject() {
     override fun writeNbt(key: String, compound: NbtCompound) {
         val whiteBloodCount: NbtCompound = NbtCompound()
 
-        whiteBloodCount.putInt("N", this.neutrophil.toInt())
-        whiteBloodCount.putInt("E", this.eosinophil.toInt())
-        whiteBloodCount.putInt("B", this.basophil.toInt())
-        whiteBloodCount.putInt("L", this.lymphocyte.toInt())
-        whiteBloodCount.putInt("M", this.monocyte.toInt())
+        whiteBloodCount.putLong("N", this.neutrophil.toLong())
+        whiteBloodCount.putLong("E", this.eosinophil.toLong())
+        whiteBloodCount.putLong("B", this.basophil.toLong())
+        whiteBloodCount.putLong("L", this.lymphocyte.toLong())
+        whiteBloodCount.putLong("M", this.monocyte.toLong())
 
         compound.put(key, whiteBloodCount)
     }
@@ -147,9 +147,9 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    fun healthNeutrophil(): UInt {
+    fun healthNeutrophil(): ULong {
         // Generate the Neutrocyte using general range (2.5~7.5 times 10^9).
-        this.neutrophil = nextDouble(2.5, 7.5).times(SICount.GIGA).toUInt()
+        this.neutrophil = SICount.GIGA.times(nextDouble(2.5, 7.5)).toULong()
 
         return this.neutrophil
     }
@@ -164,9 +164,9 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    fun healthEosinophil(): UInt {
+    fun healthEosinophil(): ULong {
         // Generate the Neutrocyte using general range (0.4~0.45 times 10^9).
-        this.eosinophil = nextDouble(0.4, 0.45).times(SICount.GIGA).toUInt()
+        this.eosinophil = SICount.GIGA.times(nextDouble(0.4, 0.45)).toULong()
 
         return this.eosinophil
     }
@@ -181,9 +181,9 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    fun healthBasophil(): UInt {
+    fun healthBasophil(): ULong {
         // Generate the Neutrocyte using general range (0~0.1 times 10^9).
-        this.basophil = nextDouble(0.0, 0.1).times(SICount.GIGA).toUInt()
+        this.basophil = SICount.GIGA.times(nextDouble(0.0, 0.1)).toULong()
 
         return this.basophil
     }
@@ -199,9 +199,9 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    fun healthLymphocyte(): UInt {
+    fun healthLymphocyte(): ULong {
         // Generate the Neutrocyte using general range (1.0~4.0 times 10^9).
-        this.lymphocyte = nextDouble(1.0, 4.0).times(SICount.GIGA).toUInt()
+        this.lymphocyte = SICount.GIGA.times(nextDouble(1.0, 4.0)).toULong()
 
         return this.lymphocyte
     }
@@ -216,9 +216,9 @@ class WhiteBloodCount : NbtObject() {
      *
      * @since 1.0.0
      */
-    fun healthMonocyte(): UInt {
+    fun healthMonocyte(): ULong {
         // Generate the Neutrocyte using general range (0.4~0.45 times 10^9).
-        this.monocyte = nextDouble(0.2, 1.0).times(SICount.GIGA).toUInt()
+        this.monocyte = SICount.GIGA.times(nextDouble(0.2, 1.0)).toULong()
 
         return this.monocyte
     }
