@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "medical",
+  "version": "${version}",
+  "name": "Medical",
+  "description": ".",
+  "authors": [
+    "cao_awa"
+  ],
+  "contact": {
+    "repo": "https://github.com/cao-awa/Medical-mc",
+    "issues": "https://github.com/cao-awa/Medical-mc/issues"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/sepals/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.cao.awa.medical.MedicalFabric"
+    ],
+    "client": [
+    ],
+    "server": [
+    ]
+  },
+  "mixins": [
+    "medical.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": "1.21.5",
+    "fabric": "*"
+  }
+}

@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/cao-awa/Medical-mc/issues"
+license = "GPLv3"
+
+[[mods]]
+modId = "medical"
+version = "${version}"
+displayName = "Medical"
+authors = "cao_awa"
+description = '''
+.
+'''
+#logoFile = ""
+
+[[dependencies.medical]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.132]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.medical]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1]"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "medical.mixins.json"
