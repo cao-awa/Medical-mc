@@ -68,8 +68,6 @@ class WhiteBloodCount : NbtObject() {
     var monocyte: ULong = 0u
 
     override fun readNbt(compound: NbtCompound) {
-        println("awa?")
-
         // Read neutrocyte data.
         compound.getInt("N").ifPresentOrElse({ neutrophilCount: Int ->
             // If present when set present value.

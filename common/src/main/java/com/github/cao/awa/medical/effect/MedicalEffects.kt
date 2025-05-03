@@ -18,8 +18,10 @@ object MedicalEffects {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of("medical", id), statusEffect)
     }
 
+    @JvmStatic
     val BACTERIAL_INFECTION: RegistryEntry<StatusEffect> =
         register("bacterial_infection", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187, InfectionType.BACTERIAL_INFECTION))
+    @JvmStatic
     val VIRAL_INFECTION: RegistryEntry<StatusEffect> =
         register("viral_infection", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187, InfectionType.VIRAL_INFECTION))
 //    val CYTOKINE_STORM: RegistryEntry<StatusEffect> =

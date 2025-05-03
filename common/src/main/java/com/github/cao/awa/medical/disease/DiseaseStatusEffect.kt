@@ -5,12 +5,8 @@ import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectCategory
 import net.minecraft.server.world.ServerWorld
 
-abstract class DiseaseStatusEffect(statusEffectCategory: StatusEffectCategory?, i: Int): StatusEffect(statusEffectCategory, i) {
+abstract class DiseaseStatusEffect(statusEffectCategory: StatusEffectCategory, color: Int): StatusEffect(statusEffectCategory, color) {
     override fun applyUpdateEffect(world: ServerWorld, entity: LivingEntity, amplifier: Int): Boolean {
-        if (entity.health > 1.0f) {
-            entity.damage(world, entity.damageSources.magic(), 1.0f)
-        }
-
         return true
     }
 
