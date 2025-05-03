@@ -68,46 +68,48 @@ class WhiteBloodCount : NbtObject() {
     var monocyte: UInt = 0u
 
     override fun readNbt(compound: NbtCompound) {
+        println("awa?")
+
         // Read neutrocyte data.
-        compound.getInt("N").ifPresentOrElse({
+        compound.getInt("N").ifPresentOrElse({ neutrophilCount: Int ->
             // If present when set present value.
-            this.neutrophil = it.toUInt()
+            this.neutrophil = neutrophilCount.toUInt()
         }) {
             // If not data present, generate a new one.
             healthNeutrophil()
         }
 
         // Read neutrocyte data.
-        compound.getInt("E").ifPresentOrElse({
+        compound.getInt("E").ifPresentOrElse({ eosinophilCount: Int ->
             // If present when set present value.
-            this.eosinophil = it.toUInt()
+            this.eosinophil = eosinophilCount.toUInt()
         }) {
             // If not data present, generate a new one.
             healthEosinophil()
         }
 
         // Read basophil data.
-        compound.getInt("B").ifPresentOrElse({
+        compound.getInt("B").ifPresentOrElse({ basophilCount: Int ->
             // If present when set present value.
-            this.basophil = it.toUInt()
+            this.basophil = basophilCount.toUInt()
         }) {
             // If not data present, generate a new one.
             healthBasophil()
         }
 
         // Read lymphocyte data.
-        compound.getInt("L").ifPresentOrElse({
+        compound.getInt("L").ifPresentOrElse({ lymphocyteCount: Int ->
             // If present when set present value.
-            this.basophil = it.toUInt()
+            this.lymphocyte = lymphocyteCount.toUInt()
         }) {
             // If not data present, generate a new one.
             healthLymphocyte()
         }
 
         // Read monocyte data.
-        compound.getInt("M").ifPresentOrElse({
+        compound.getInt("M").ifPresentOrElse({ monocyte: Int ->
             // If present when set present value.
-            this.basophil = it.toUInt()
+            this.monocyte = monocyte.toUInt()
         }) {
             // If not data present, generate a new one.
             healthMonocyte()

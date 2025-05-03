@@ -11,6 +11,7 @@ import com.github.cao.awa.medical.mixin.player.PlayerEntityMixin
 class ImmunitySystem: NbtObject() {
     val whiteBloodCellCount: WhiteBloodCount = WhiteBloodCount()
     val immuneResponse: UInt = 0u
+
     override fun readNbt(compound: NbtCompound) {
         compound.getCompound("WBC").ifPresentOrElse(
             // Read present cells data.
@@ -22,6 +23,7 @@ class ImmunitySystem: NbtObject() {
     }
 
     override fun writeNbt(key: String, compound: NbtCompound) {
+        println("qaq?")
         val immunitySystem: NbtCompound = NbtCompound()
 
         this.whiteBloodCellCount.writeNbt("WBC", immunitySystem)
