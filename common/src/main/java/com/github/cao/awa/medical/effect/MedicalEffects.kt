@@ -1,6 +1,7 @@
 package com.github.cao.awa.medical.effect
 
 import com.github.cao.awa.medical.disease.immunity.infection.effect.InfectionStatusEffect
+import com.github.cao.awa.medical.disease.immunity.infection.type.InfectionType
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectCategory
 import net.minecraft.registry.Registries
@@ -18,23 +19,23 @@ object MedicalEffects {
     }
 
     val BACTERIAL_INFECTION: RegistryEntry<StatusEffect> =
-        register("bacterial_infection", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+        register("bacterial_infection", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187, InfectionType.BACTERIAL_INFECTION))
     val VIRAL_INFECTION: RegistryEntry<StatusEffect> =
-        register("viral_infection", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
-    val CYTOKINE_STORM: RegistryEntry<StatusEffect> =
-        register("cytokine_storm", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
-    val RHABDMYOLYSIS: RegistryEntry<StatusEffect> =
-        register("rhabdomyolysis", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
-    val DIARRHEA: RegistryEntry<StatusEffect> =
-        register("diarrhea", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
-    val VOMITING: RegistryEntry<StatusEffect> =
-        register("vomiting", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
-    val BLEEDING: RegistryEntry<StatusEffect> =
-        register("bleeding", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
-    val RESPIRATORY_FAILURE: RegistryEntry<StatusEffect> =
-        register("respiratory_failure", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
-    val HYPOVOLEMIC_SHOCK: RegistryEntry<StatusEffect> =
-        register("hypovolemia", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
-    val SHOCK: RegistryEntry<StatusEffect> =
-        register("shock", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+        register("viral_infection", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187, InfectionType.VIRAL_INFECTION))
+//    val CYTOKINE_STORM: RegistryEntry<StatusEffect> =
+//        register("cytokine_storm", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+//    val RHABDMYOLYSIS: RegistryEntry<StatusEffect> =
+//        register("rhabdomyolysis", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+//    val DIARRHEA: RegistryEntry<StatusEffect> =
+//        register("diarrhea", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+//    val VOMITING: RegistryEntry<StatusEffect> =
+//        register("vomiting", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+//    val BLEEDING: RegistryEntry<StatusEffect> =
+//        register("bleeding", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+//    val RESPIRATORY_FAILURE: RegistryEntry<StatusEffect> =
+//        register("respiratory_failure", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+//    val HYPOVOLEMIC_SHOCK: RegistryEntry<StatusEffect> =
+//        register("hypovolemia", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
+//    val SHOCK: RegistryEntry<StatusEffect> =
+//        register("shock", InfectionStatusEffect(StatusEffectCategory.HARMFUL, 8889187))
 }
