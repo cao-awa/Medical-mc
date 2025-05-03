@@ -4,6 +4,7 @@
   "package": "com.github.cao.awa.medical.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "player.PlayerEntityMixin"
   ],
   "client": [
   ],
