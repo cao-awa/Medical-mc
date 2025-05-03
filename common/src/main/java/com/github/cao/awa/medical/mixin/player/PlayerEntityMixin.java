@@ -1,5 +1,6 @@
 package com.github.cao.awa.medical.mixin.player;
 
+import com.github.cao.awa.medical.api.MedicalDelegate;
 import com.github.cao.awa.medical.api.immunity.ImmunityDelegate;
 import com.github.cao.awa.medical.disease.immunity.ImmunitySystem;
 import com.github.cao.awa.medical.disease.immunity.infection.type.InfectionType;
@@ -16,9 +17,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-abstract public class PlayerEntityMixin extends Entity implements ImmunityDelegate {
+abstract public class PlayerEntityMixin extends Entity implements MedicalDelegate {
     @Unique
-    private final ImmunitySystem immunitySystem = new ImmunitySystem();
+    private final ImmunitySystem immunitySystem = new ImmunitySystem(this);
 
     public PlayerEntityMixin(EntityType<?> type, World world) {
         super(type, world);
